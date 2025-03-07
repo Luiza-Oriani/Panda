@@ -152,7 +152,7 @@
                 <div class="faq-answer">
  
                     <p class="message">Olá, tudo bem? 😊<br>Meu nome é XXXX e estou aqui para te ajudar! Para que possamos continuar, você poderia, por favor, confirmar algumas informações?<br>• Nome completo do titular:<br>• CPF:<br>• E-mail para contato:<br>• Dois telefones:<br>• Endereço:<br><br>Depois disso, me conta qual é a sua dúvida ou problema para que eu possa te ajudar da melhor forma possível.</p>
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                    <00button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
                 </div>
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Agendamento</button>
                 <div class="faq-answer">
@@ -278,18 +278,21 @@
     </div> -->
     
     <script>
+        // Abre e fecha as respostas da FAQ quando clicado no botão
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const answer = button.nextElementSibling;
                 answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
             });
         });
-
+    
+        // Função para alternar sub-respostas (se houver)
         function toggleSubAnswer(button) {
             let subAnswer = button.nextElementSibling;
             subAnswer.style.display = subAnswer.style.display === 'block' ? 'none' : 'block';
         }
-
+    
+        // Função para filtrar as FAQs com base na pesquisa
         function searchFAQ() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let faqItems = document.querySelectorAll('.faq-item');
@@ -299,54 +302,48 @@
                 let answer = item.querySelector('.faq-answer').textContent.toLowerCase();
                 
                 if (question.includes(input) || answer.includes(input)) {
-                    item.style.display = 'block';
+                    item.style.display = 'block'; // Exibe o item se corresponder à pesquisa
                 } else {
-                    item.style.display = 'none';
+                    item.style.display = 'none'; // Oculta o item se não corresponder
                 }
             });
         }
-
-
-function copyToClipboard(button) {
-    let answerDiv = button.closest('.faq-answer'); // Localiza a seção correta da FAQ
-    let textElement = answerDiv.querySelector('.message'); // Encontra a mensagem correspondente
-    if (textElement) {
-        let text = textElement.innerHTML.replace(/<br>/g, '\n'); // Mantém as quebras de linha
-        navigator.clipboard.writeText(text).then(() => {
-            alert('Texto copiado para a área de transferência!');
+    
+        // Função para copiar a resposta para a área de transferência
+        function copyToClipboard(button) {
+            let answerDiv = button.closest('.faq-answer'); // Localiza a seção correta da FAQ
+            let textElement = answerDiv.querySelector('.message'); // Encontra a mensagem correspondente
+            if (textElement) {
+                let text = textElement.innerHTML.replace(/<br>/g, '\n'); // Mantém as quebras de linha
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Texto copiado para a área de transferência!');
+                });
+            }
+        }
+    
+        // Corrige a navegação de links na FAQ, fazendo a resposta aparecer ao clicar
+        document.querySelectorAll("a[href^='#']").forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                var targetId = link.getAttribute('href');
+                var resposta = document.querySelector(targetId);
+                var pergunta = resposta.previousElementSibling;
+    
+                // Garante que o item da FAQ estará visível ao clicar
+                var faqItem = resposta.closest('.faq-item');
+                faqItem.style.display = 'block'; // Garante que o item da FAQ não está oculto pela pesquisa
+    
+                // Exibe a resposta e adiciona a classe 'aberto' ao botão
+                resposta.style.display = "block";
+                pergunta.classList.add("aberto");
+    
+                // Opcional: Rola a página até a resposta
+                window.scrollTo({
+                    top: resposta.offsetTop - 50, // Ajuste conforme necessário
+                    behavior: "smooth"
+                });
+            });
         });
-    }
-}
-    // Espera a página carregar
-//    window.onload = function() {
-        // Verifica se a URL tem um fragmento (id de ancoragem)
- //       var hash = window.location.hash;
-
-        // Se o fragmento corresponder a um id de resposta
-//        if (hash) {
-//            var resposta = document.querySelector(hash);
-//            var pergunta = resposta.previousElementSibling;
-            
-            // Exibe a resposta e adiciona uma classe 'aberto' para controle de estilo
-//            resposta.style.display = "block";
-//            pergunta.classList.add("aberto");
-//        }
-//    };
-
-    // Quando um link de navegação for clicado
-    document.querySelectorAll("a[href^='#']").forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            var targetId = link.getAttribute('href');
-            var resposta = document.querySelector(targetId);
-            var pergunta = resposta.previousElementSibling;
-
-            // Exibe a resposta e adiciona a classe 'aberto'
-            resposta.style.display = "block";
-            pergunta.classList.add("aberto");
-        });
-   });    
-</script>
+    </script>
     </body>
 </html>
-
  
