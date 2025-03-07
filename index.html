@@ -182,7 +182,7 @@
         </div>
         <div class="faq-item">
             <button class="faq-question">Falha Videogame - DNS/DHCP</button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="videogame">
                 Se o videogame apresentar falha na conexão e exibir um erro relacionado a DNS ou DHCP, verifique se a configuração do DNS está correta. <br> Oriente o cliente a acessar as configurações de rede do videogame para realizar essa verificação.
                 Caso o erro persista após a configuração do IPv4, pode ser que o endereço IP tenha sido previamente definido com final 150 no videogame ou em outro equipamento. Nesse caso, oriente o cliente a escolher um endereço entre 150 e 200. <br>Cada videogame possui uma interface diferente. Abaixo, segue um passo a passo específico para cada uma delas.
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">XBOX</button>
@@ -195,9 +195,9 @@
         
         <div class="faq-item">
             <button class="faq-question">Lentidão</button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="lentidão">
                 Pergunte ao cliente o que ele considera como lentidão e em quais situações ocorre. Verifique quais acessos, aplicativos e equipamentos estão sendo utilizados, além do modo de conexão (cabo ou Wi-Fi).
-                <br>Verifique no sistema o sinal da fibra do cliente. Se estiver fora do padrão, isso pode causar lentidão na conexão e pode ser necessário visita técnica visite <b>Sinal de Fibra Fora do Padrão</b>.
+                <br>Verifique no sistema o sinal da fibra do cliente. Se estiver fora do padrão, isso pode causar lentidão na conexão e pode ser necessário visita técnica visite <a href="#sinaldefibra"><b>Sinal de Fibra Fora do Padrão</b></a>.
                 <br> Verifique o plano contratado e a quantidade de equipamento conectado, acesse <b>Info Planos</b>
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Aplicativos</button>
                 <div class="faq-answer">Se o cliente relatar falha em apenas um aplicativo, verifique se outros acessos estão funcionando normalmente. Caso os demais serviços estejam operando corretamente, informe que pode se tratar de uma falha específica do aplicativo.
@@ -213,7 +213,7 @@
         </div>
         <div class="faq-item">
             <button class="faq-question">Sem conexão</button>
-            <div class="faq-answer">
+            <div class="faq-answer" id="semconexao">
                 <b>1º Coleta de informações com o cliente</b>
                 <br><li>Deixe o cliente relatar o que ocorreu no local</li>
                 <li>Pergunte quais luzes/LEDs estão acesas no roteador, solicitando um panorama geral e não apenas sobre a luz vermelha.</li>
@@ -236,11 +236,18 @@
                     </span></span>→ ONUs</li>
             </div>
         </div>
-<!--        <div class="faq-item">
-            <button class="faq-question">Fibra fora do padrão</button>
-            <div class="faq-answer">Resposta sobre fibra óptica fora do padrão.</div>
-        </div>
         <div class="faq-item">
+            <button class="faq-question" >Sinal de fibra fora do padrão</button>
+            <div class="faq-answer" id="sinaldefibra">O sinal de fibra fora do padrão pode causar quedas de conexão, lentidão, falta de acesso, entre outros problemas.
+                <br><br><b>Possíveis causas para o sinal de fibra fora do padrão:</b>
+                <br><br><li>Fibra dobrada, amassada, torcida ou mordida, tanto dentro quanto fora do local relatado pelo cliente.</li>
+                <li>Conector danificado ou sujo.</li>
+                <li>Cabo mal encaixado.</li>
+                <br><br>O sinal de fibra deve sempre estar acima de <b>-25 dBm</b>. Caso o cliente tenha sinal de <b>-26 dBm ou inferior</b>, é necessário revisar as possíveis causas mencionadas acima e agendar uma visita técnica para o devido reparo se assim  a falha se manter.
+                <br><b>NECESSÁRIO FRISAR QUE O SINAL É NEGATIVO</b>
+            </div>
+        </div>
+<!--        <div class="faq-item">
             <button class="faq-question">Ponto adicional</button>
             <div class="faq-answer">Resposta sobre instalação de ponto adicional.</div>
         </div>
@@ -310,7 +317,35 @@ function copyToClipboard(button) {
         });
     }
 }
-    </script>
+    // Espera a página carregar
+//    window.onload = function() {
+        // Verifica se a URL tem um fragmento (id de ancoragem)
+ //       var hash = window.location.hash;
+
+        // Se o fragmento corresponder a um id de resposta
+//        if (hash) {
+//            var resposta = document.querySelector(hash);
+//            var pergunta = resposta.previousElementSibling;
+            
+            // Exibe a resposta e adiciona uma classe 'aberto' para controle de estilo
+//            resposta.style.display = "block";
+//            pergunta.classList.add("aberto");
+//        }
+//    };
+
+    // Quando um link de navegação for clicado
+    document.querySelectorAll("a[href^='#']").forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            var targetId = link.getAttribute('href');
+            var resposta = document.querySelector(targetId);
+            var pergunta = resposta.previousElementSibling;
+
+            // Exibe a resposta e adiciona a classe 'aberto'
+            resposta.style.display = "block";
+            pergunta.classList.add("aberto");
+        });
+   });    
+</script>
     </body>
 </html>
 
