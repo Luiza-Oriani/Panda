@@ -5,171 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Suporte Técnico</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
-        .faq-container { width: 100%; }
-        .faq-item { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+    .faq-container { width: 100%; }
+    .faq-item { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+    .faq-question {
+        background-color: #1D70B7; 
+        color: white; 
+        padding: 10px; 
+        cursor: pointer;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 16px;
+    }
+    .faq-answer { 
+        display: none; 
+        padding: 10px; 
+        background-color: #f9f9f9; 
+    }
+    .faq-sub-option {
+        display: block;
+        background-color: #e0e0e0;
+        margin: 5px 0;
+        padding: 8px;
+        cursor: pointer;
+        border: none;
+        text-align: left;
+        font-size: 14px;
+    }
+    #searchInput {
+        width: calc(100% - 120px); /* Ajusta o tamanho para deixar espaço para o botão */
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        display: inline-block;
+    }
+    #header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .sair-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        background-color: #1D70B7;
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .sair-button:hover {
+        background-color: black;
+        color: white;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        body {
+            margin: 10px;
+            padding: 0;
+        }
+
         .faq-question {
-            background-color: #1D70B7; 
-            color: white; 
-            padding: 10px; 
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 16px;
-        }
-        .faq-answer { 
-            display: none; 
-            padding: 10px; 
-            background-color: #f9f9f9; 
-        }
-        .faq-sub-option {
-            display: block;
-            background-color: #e0e0e0;
-            margin: 5px 0;
-            padding: 8px;
-            cursor: pointer;
-            border: none;
-            text-align: left;
             font-size: 14px;
-        }
-        #searchInput {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        #nameInput {
-            width: calc(100% - 22px);
-            padding: 5px;
-            margin-bottom: 5px;
-            border: 1px solid #ccc;
-        }
-        #copyButton {
-            background-color: #1D70B7;
-            color: white;
-            border: none;
             padding: 8px;
-            cursor: pointer;
-            display: block;
-            margin-top: 10px;
-        }
-        /* Responsividade */
-        @media (max-width: 768px) {
-            body {
-                margin: 10px;
-                padding: 0;
-            }
-
-            .faq-question {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .faq-answer {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .faq-sub-option {
-                font-size: 12px;
-                padding: 6px;
-            }
-
-            #searchInput {
-                font-size: 14px;
-                padding: 8px;
-            }
         }
 
-        @media (max-width: 480px) {
-            .faq-question {
-                font-size: 12px;
-                padding: 6px;
-            }
-
-            .faq-answer {
-                font-size: 12px;
-                padding: 6px;
-            }
-
-            .faq-sub-option {
-                font-size: 12px;
-                padding: 5px;
-            }
-
-            #searchInput {
-                font-size: 12px;
-                padding: 6px;
-            }
-        }
-        .tooltip {
-            position: relative;
-            cursor: pointer;
-            color: blue;
-            text-decoration: underline;
+        .faq-answer {
+            font-size: 14px;
+            padding: 8px;
         }
 
-        .tooltip .tooltip-content {
-            visibility: hidden;
-            width: 220px;
-            background-color: #141C4B;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 10px;
-            position: absolute;
-            top: 120%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
+        .faq-sub-option {
+            font-size: 12px;
+            padding: 6px;
         }
 
-        .tooltip:hover .tooltip-content {
-            visibility: visible;
-            opacity: 1;
+        #searchInput {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .faq-question {
+            font-size: 12px;
+            padding: 6px;
         }
 
-        .tooltip img {
-            width: 350px; /* Tamanho da imagem */
-            border-radius: 4px;
-            margin-bottom: 5px;
-        }
-        .sair-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: black;
-            background-color: white;
-            border: 2px solid black;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
+        .faq-answer {
+            font-size: 12px;
+            padding: 6px;
         }
 
-        .sair-button:hover {
-            background-color: black;
-            color: white;
+        .faq-sub-option {
+            font-size: 12px;
+            padding: 5px;
         }
 
-    </style>
-    <script>
-        // Verifica se o usuário está logado
-        if (sessionStorage.getItem("usuarioLogado") !== "true") {
-            window.location.href = "login.html"; // Redireciona para o login se não estiver logado
+        #searchInput {
+            font-size: 12px;
+            padding: 6px;
+            width: 100%; /* Deixa o campo de busca ocupar toda a largura na tela pequena */
         }
-    </script>
+    }
+</style>
+<script>
+    // Verifica se o usuário está logado
+    if (sessionStorage.getItem("usuarioLogado") !== "true") {
+        window.location.href = "login.html"; // Redireciona para o login se não estiver logado
+    }
+</script>
 </head>
 <body>
-    <h2>FAQ - Suporte Técnico</h2>
-    <a href="login.html" class="sair-button">SAIR</a>
+<h2>FAQ - Suporte Técnico</h2>
 
+<div id="header-container">
     <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
+    <a href="login.html" class="sair-button">SAIR</a>
+</div>
     <div class="faq-container" id="faqList">
         <div class="faq-item">
             <button class="faq-question">Mensagens para Interação com o Cliente</button>
@@ -384,6 +343,10 @@
 </html>
  
 
+ 
+
+
+ 
  
 
 
