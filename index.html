@@ -161,13 +161,13 @@
     <script>
         // Verifica se o usuário está logado
         if (sessionStorage.getItem("usuarioLogado") !== "true") {
-            window.location.href = "login2.html"; // Redireciona para o login se não estiver logado
+            window.location.href = "login.html"; // Redireciona para o login se não estiver logado
         }
     </script>
 </head>
 <body>
     <h2>FAQ - Suporte Técnico</h2>
-    <a href="login2.html" class="sair-button">SAIR</a>
+    <a href="login.html" class="sair-button">SAIR</a>
 
     <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
     <div class="faq-container" id="faqList">
@@ -377,7 +377,7 @@
     localStorage.removeItem("usuarioLogado");
 
     // Redireciona para a página de login
-    window.location.href = "login2.html"; 
+    window.location.href = "login.html"; 
 });
     </script>
     </body>
