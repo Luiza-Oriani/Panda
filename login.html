@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - FAQ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,28 +52,32 @@
 </head>
 <body>
     <div class="login-container">
-    <h2>Login 2</h2>
-    <form id="loginForm">
-    <input type="text" id="username" placeholder="Usuário">
-    <input type="password" id="password" placeholder="Senha">
-    <button type="submit">Entrar</button>
-    </form>
-    <p id="error-message" class="error-message"></p>
+        <h2>Login 1</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="error-message" class="error-message"></p>
     </div>
+
     <script>
+     // Proteção para não deixar acessar login novamente se já estiver logado
+     if (localStorage.getItem("loggedIn") === "true") {
+            window.location.href = "index.html"; // Redireciona para a página de FAQ se já estiver logado
+        }
+
+        // Lógica de login
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
             // Definição do usuário e senha
             const validUser = "suporte";
-            const validPassword = "panda";
+            const validPassword = "123456";
 
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
             const errorMessage = document.getElementById("error-message");
-
-            console.log('Username:', username);  // Verifica o valor do usuário
-            console.log('Password:', password);  // Verifica o valor da senha
 
             if (username === validUser && password === validPassword) {
                 localStorage.setItem("loggedIn", "true"); // Armazena a sessão
@@ -81,12 +85,7 @@
             } else {
                 errorMessage.textContent = "Usuário ou senha inválidos!";
             }
-        });
-
-        // Proteção para redirecionar usuários não logados na FAQ
-        if (window.location.pathname.includes("faq.html") && localStorage.getItem("loggedIn") !== "true") {
-            window.location.href = "login.html";
-        }
+        }); 
     </script>
 </body>
 </html>
