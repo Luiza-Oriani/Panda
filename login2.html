@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1D70B7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #141C4B;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+    <h2>Login 2</h2>
+    <form id="loginForm">
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button type="submit">Entrar</button>
+    </form>
+    <p id="error-message" class="error-message"></p>
+    </div>
+    <script>
+         document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Definição do usuário e senha
+            const validUser = "suporte";
+            const validPassword = "123456";
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (username === validUser && password === validPassword) {
+                localStorage.setItem("loggedIn", "true"); // Armazena a sessão
+                window.location.href = "index.html"; // Redireciona para a FAQ
+            } else {
+                errorMessage.textContent = "Usuário ou senha inválidos!";
+            }
+        });
+
+        // Proteção para redirecionar usuários não logados na FAQ
+        if (window.location.pathname.includes("faq.html") && localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

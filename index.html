@@ -139,10 +139,36 @@
             border-radius: 4px;
             margin-bottom: 5px;
         }
+        .sair-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .sair-button:hover {
+            background-color: black;
+            color: white;
+        }
+
     </style>
+    <script>
+        // Verifica se o usuário está logado
+        if (sessionStorage.getItem("usuarioLogado") !== "true") {
+            window.location.href = "login2.html"; // Redireciona para o login se não estiver logado
+        }
+    </script>
 </head>
 <body>
     <h2>FAQ - Suporte Técnico</h2>
+    <a href="login2.html" class="sair-button">SAIR</a>
+
     <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
     <div class="faq-container" id="faqList">
         <div class="faq-item">
@@ -152,7 +178,7 @@
                 <div class="faq-answer">
  
                     <p class="message">Olá, tudo bem? 😊<br>Meu nome é XXXX e estou aqui para te ajudar! Para que possamos continuar, você poderia, por favor, confirmar algumas informações?<br>• Nome completo do titular:<br>• CPF:<br>• E-mail para contato:<br>• Dois telefones:<br>• Endereço:<br><br>Depois disso, me conta qual é a sua dúvida ou problema para que eu possa te ajudar da melhor forma possível.</p>
-                    <00button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
                 </div>
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Agendamento</button>
                 <div class="faq-answer">
@@ -343,7 +369,22 @@
                 });
             });
         });
+        document.getElementById("logout-btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Impede o link de recarregar a página
+
+    // Remove qualquer dado de login salvo (pode ser sessionStorage ou localStorage)
+    sessionStorage.removeItem("usuarioLogado");
+    localStorage.removeItem("usuarioLogado");
+
+    // Redireciona para a página de login
+    window.location.href = "login2.html"; 
+});
     </script>
     </body>
 </html>
+ 
+
+ 
+
+
  
