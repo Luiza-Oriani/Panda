@@ -62,27 +62,31 @@
     </div>
     <script>
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+            event.preventDefault();
 
-    // Definição do usuário e senha
-    const validUser = "suporte";
-    const validPassword = "123456";
+            // Definição do usuário e senha
+            const validUser = "suporte";
+            const validPassword = "123456";
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const errorMessage = document.getElementById("error-message");
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
 
-    console.log('Username:', username);  // Verifica o valor do usuário
-    console.log('Password:', password);  // Verifica o valor da senha
+            console.log('Username:', username);  // Verifica o valor do usuário
+            console.log('Password:', password);  // Verifica o valor da senha
 
-    if (username === validUser && password === validPassword) {
-        localStorage.setItem("loggedIn", "true"); // Armazena a sessão
-        window.location.href = "index.html"; // Redireciona para a FAQ
-    } else {
-        errorMessage.textContent = "Usuário ou senha inválidos!";
-    }
-});
+            if (username === validUser && password === validPassword) {
+                localStorage.setItem("loggedIn", "true"); // Armazena a sessão
+                window.location.href = "index.html"; // Redireciona para a FAQ
+            } else {
+                errorMessage.textContent = "Usuário ou senha inválidos!";
+            }
+        });
 
+        // Proteção para redirecionar usuários não logados na FAQ
+        if (window.location.pathname.includes("faq.html") && localStorage.getItem("loggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
     </script>
 </body>
 </html>
