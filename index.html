@@ -221,210 +221,202 @@
         }
     }
 </style>
-</head>
 <body>
-<div id="header-container">
-    <h2>FAQ - Suporte Técnico</h2>
-    <a href="login.html" class="sair-button">SAIR</a>
-</div>
-    <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
-    <div class="faq-container" id="faqList">
-        <div class="faq-item">
-            <button class="faq-question">Mensagens para Interação com o Cliente</button>
-            <div class="faq-answer">
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Saudação/Início do Atendimento</button>
-                <div class="faq-answer">
- 
-                    <p class="message">Olá, tudo bem? 😊<br>Meu nome é XXXX e estou aqui para te ajudar! Para que possamos continuar, você poderia, por favor, confirmar algumas informações?<br>• Nome completo do titular:<br>• CPF:<br>• E-mail para contato:<br>• Dois telefones:<br>• Endereço:<br><br>Depois disso, me conta qual é a sua dúvida ou problema para que eu possa te ajudar da melhor forma possível.</p>
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
-                </div>
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Agendamento</button>
-                <div class="faq-answer">
-                    <p class="message">
-                        Seu atendimento está agendado para o dia XX/XX, no período da manhã/tarde.<br>Nosso técnico pode comparecer entre às 07h às 13h/14h às 20h.<br>Nosso técnico só pode ser atendido por uma pessoa maior de 18 anos, não sendo obrigatório o titular.<br>Caso o técnico chegue até o local e não encontre ninguém ou tenha dificuldades para encontrar o endereço, entraremos em contato no telefone final XXXX.
-                    </p>
-                    
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
-                </div>
-                
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Transferência Fim de Expediente</button>
-                <div class="faq-answer">
-                    <p class="message">Sua conversa será transferida para outro analista para garantir continuidade no atendimento. Estamos comprometidos em oferecer a melhor assistência possível. Agradecemos sua compreensão.</p>
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
-                </div>
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Encerramento inatividade</button>
-                <div class="faq-answer">
-                    <p class="message">Olá! Parece que nossa conversa ficou um pouco silenciosa. Se você tiver mais alguma pergunta ou precisar de assistência, sinta-se à vontade para retornar a qualquer momento. Estou aqui para ajudar! Caso contrário, tenha um ótimo dia e até mais!</p>
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
-                </div>
-               <!-- <button class="faq-sub-option" onclick="toggleSubAnswer(this)">BASE</button>
-                <div class="faq-answer">
-                    <p class="message">BASE</p>
-                    <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
-                </div>-->
-            </div>
+<!--    <button id="logout-btn">Sair</button>-->
+        <div id="header-container">
+            <h2>FAQ - Suporte Técnico</h2>
+            <a href="login.html" class="sair-button">SAIR</a>
         </div>
-        <div class="faq-item">
-            <button class="faq-question">Falha Videogame - DNS/DHCP</button>
-            <div class="faq-answer" id="videogame">
-                Se o videogame apresentar falha na conexão e exibir um erro relacionado a DNS ou DHCP, verifique se a configuração do DNS está correta. <br> Oriente o cliente a acessar as configurações de rede do videogame para realizar essa verificação.
-                Caso o erro persista após a configuração do IPv4, pode ser que o endereço IP tenha sido previamente definido com final 150 no videogame ou em outro equipamento. Nesse caso, oriente o cliente a escolher um endereço entre 150 e 200. <br>Cada videogame possui uma interface diferente. Abaixo, segue um passo a passo específico para cada uma delas.
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">XBOX</button>
-                <div class="faq-answer"><b>XBOX</b>: Configurações de Rede → Configurações avançadas → Configurações de IP → Selecionar MANUAL nas configurações de IPV4 → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 <br><img src="img/Xbox1.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/Xbox2.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/Xbox3.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações Avançadas"width="550px" height="300px"> <br><img src="img/Xbox4.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/Xbox5.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Sub-Rede"width="550px" height="300px"><br><img src="img/Xbox6.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Gateway"width="550px" height="300px"><br><img src="img/Xbox7.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações IPV4 Primário"width="550px" height="300px"></div>
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">PLAYSTATION</button>
-                <div class="faq-answer"><b>PLAYSTATION</b>: Configurações de Rede → Como deseja configurar a conexão à internet? Selecionar a Opção PERSONALIZAR → Configurações de endereço IP. Selecionar AUTOMÁTICO → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 → Configurações MTU: AUTOMÁTICO → Servidor Proxy: NÃO USAR<br><img src="img/PS1.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/PS2.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/PS3.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Endereço IP onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/PS4.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurar conexão à Internet"width="550px" height="300px"> <br><img src="img/PS5.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de MTU"width="550px" height="300px"><br><img src="img/PS6.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações do Servidor Proxy"width="550px" height="300px"></div>
-            </div>
-        </div>        
-
+            <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
+            <div class="faq-container" id="faqList">
+                <div class="faq-item">
+                    <button class="faq-question">Mensagens para Interação com o Cliente</button>
+                    <div class="faq-answer">
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Saudação/Início do Atendimento</button>
+                        <div class="faq-answer">
+         
+                            <p class="message">Olá, tudo bem? 😊<br>Meu nome é XXXX e estou aqui para te ajudar! Para que possamos continuar, você poderia, por favor, confirmar algumas informações?<br>• Nome completo do titular:<br>• CPF:<br>• E-mail para contato:<br>• Dois telefones:<br>• Endereço:<br><br>Depois disso, me conta qual é a sua dúvida ou problema para que eu possa te ajudar da melhor forma possível.</p>
+                            <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                        </div>
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Agendamento</button>
+                        <div class="faq-answer">
+                            <p class="message">
+                                Seu atendimento está agendado para o dia XX/XX, no período da manhã/tarde.<br>Nosso técnico pode comparecer entre às 07h às 13h/14h às 20h.<br>Nosso técnico só pode ser atendido por uma pessoa maior de 18 anos, não sendo obrigatório o titular.<br>Caso o técnico chegue até o local e não encontre ninguém ou tenha dificuldades para encontrar o endereço, entraremos em contato no telefone final XXXX.
+                            </p>
+                            
+                            <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                        </div>
+                        
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Transferência Fim de Expediente</button>
+                        <div class="faq-answer">
+                            <p class="message">Sua conversa será transferida para outro analista para garantir continuidade no atendimento. Estamos comprometidos em oferecer a melhor assistência possível. Agradecemos sua compreensão.</p>
+                            <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                        </div>
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Encerramento inatividade</button>
+                        <div class="faq-answer">
+                            <p class="message">Olá! Parece que nossa conversa ficou um pouco silenciosa. Se você tiver mais alguma pergunta ou precisar de assistência, sinta-se à vontade para retornar a qualquer momento. Estou aqui para ajudar! Caso contrário, tenha um ótimo dia e até mais!</p>
+                            <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                        </div>
+                       <!-- <button class="faq-sub-option" onclick="toggleSubAnswer(this)">BASE</button>
+                        <div class="faq-answer">
+                            <p class="message">BASE</p>
+                            <button class="copyButton" onclick="copyToClipboard(this)">Copiar para área de transferência</button>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Falha Videogame - DNS/DHCP</button>
+                    <div class="faq-answer" id="videogame">
+                        Se o videogame apresentar falha na conexão e exibir um erro relacionado a DNS ou DHCP, verifique se a configuração do DNS está correta. <br> Oriente o cliente a acessar as configurações de rede do videogame para realizar essa verificação.
+                        Caso o erro persista após a configuração do IPv4, pode ser que o endereço IP tenha sido previamente definido com final 150 no videogame ou em outro equipamento. Nesse caso, oriente o cliente a escolher um endereço entre 150 e 200. <br>Cada videogame possui uma interface diferente. Abaixo, segue um passo a passo específico para cada uma delas.
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">XBOX</button>
+                        <div class="faq-answer"><b>XBOX</b>: Configurações de Rede → Configurações avançadas → Configurações de IP → Selecionar MANUAL nas configurações de IPV4 → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 <br><img src="img/Xbox1.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/Xbox2.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/Xbox3.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações Avançadas"width="550px" height="300px"> <br><img src="img/Xbox4.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/Xbox5.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Sub-Rede"width="550px" height="300px"><br><img src="img/Xbox6.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Gateway"width="550px" height="300px"><br><img src="img/Xbox7.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações IPV4 Primário"width="550px" height="300px"></div>
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">PLAYSTATION</button>
+                        <div class="faq-answer"><b>PLAYSTATION</b>: Configurações de Rede → Como deseja configurar a conexão à internet? Selecionar a Opção PERSONALIZAR → Configurações de endereço IP. Selecionar AUTOMÁTICO → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 → Configurações MTU: AUTOMÁTICO → Servidor Proxy: NÃO USAR<br><img src="img/PS1.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/PS2.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/PS3.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Endereço IP onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/PS4.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurar conexão à Internet"width="550px" height="300px"> <br><img src="img/PS5.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de MTU"width="550px" height="300px"><br><img src="img/PS6.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações do Servidor Proxy"width="550px" height="300px"></div>
+                    </div>
+                </div>        
         
-        <div class="faq-item">
-            <button class="faq-question">Lentidão</button>
-            <div class="faq-answer" id="lentidão">
-                Pergunte ao cliente o que ele considera como lentidão e em quais situações ocorre. Verifique quais acessos, aplicativos e equipamentos estão sendo utilizados, além do modo de conexão (cabo ou Wi-Fi).
-                <br>Verifique no sistema o sinal da fibra do cliente. Se estiver fora do padrão, isso pode causar lentidão na conexão e pode ser necessário visita técnica visite <a href="#sinaldefibra"><b>Sinal de Fibra Fora do Padrão</b></a>.
-                <br> Verifique o plano contratado e a quantidade de equipamento conectado, acesse <b>Info Planos</b>
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Aplicativos</button>
-                <div class="faq-answer">Se o cliente relatar falha em apenas um aplicativo, verifique se outros acessos estão funcionando normalmente. Caso os demais serviços estejam operando corretamente, informe que pode se tratar de uma falha específica do aplicativo.
-                    <br>Se houver falha em outros acessos ou mesmo que o problema pareça isolado, siga o procedimento de <b>configuração de rede</b><br><br>Muitos aplicativos apresentam instabilidades na comunicação com seus servidores, podemos identificar acessando o site <a href="https://downdetector.com.br/">downdetector.com.br</a>
-                    <br>Caso o cliente mencione que na rede de dados móveis funciona e na rede Panda não, oriente que são utilizados rotas de acesso diferentes. Pode ser utilizado o texto a seguir para melhor orientação do cliente
-                    <br><br>As redes de dados móveis e a internet residencial utilizam rotas diferentes para acessar os servidores dos aplicativos. Por isso, um serviço pode funcionar no 4G/5G e não na rede fixa. Isso pode ocorrer devido a diferenças no caminho de conexão, servidores utilizados ou otimizações feitas pelas operadoras. Se o problema persistir, recomendamos aguardar ou entrar em contato com o suporte do aplicativo.
-                </div>       
-                <button class="faq-sub-option" onclick="toggleSubAnswer(this)">TVBox / IPTV</button>
-                <div class="faq-answer">Se o cliente relatar falha no TV Box ou IPTV, questione a marca e o aplicativo utilizado. Informamos que não garantimos o bom funcionamento desses dispositivos, pois não são homologados pela ANATEL. Desde 2023, a ANATEL tem bloqueado o sinal de serviços desse tipo.<br><br>Para melhorar a estabilidade da conexão, oriente o cliente a conectar o equipamento via cabo de rede em vez do Wi-Fi. No entanto, mesmo com essa configuração, não há garantia de funcionamento para dispositivos não homologados.<br><br> Caso o problema persista, orientamos que o cliente entre em contato com o suporte técnico ou o fornecedor do equipamento. No entanto, há alguns aplicativos e dispositivos homologados, como o <b>WATCHTV</b> e o <b>Claro Box TV</b>.</div>  
-               <!--<button class="faq-sub-option" onclick="toggleSubAnswer(this)">BASE</button>
-                <div class="faq-answer"><b>BASE</b></div>    --> 
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Sem conexão</button>
-            <div class="faq-answer" id="semconexao">
-                <b>Coleta de informações com o cliente</b>
-                <br><li>Deixe o cliente relatar o que ocorreu no local</li>
-                <li>Pergunte quais luzes/LEDs estão acesas no roteador, solicitando um panorama geral e não apenas sobre a luz vermelha.</li>
-                <li>Se nenhuma luz/LED estiver acesa questione se houve queda de energia no local.</li>
-                <li>Verifique se todos os cabos estão bem encaixados no roteador.</li>
-                <li>estão bem encaixados no roteador.</li>
-                <li>Solicite que o cliente desligue e ligue novamente o roteador, verificando se houve mudança nas luzes/LEDs.</li>
-                <br><b>Verificação no sistema:</b>
-                <br>Acesse:
-                <li>Cadastro do cliente → Login → Fibra → Fibra Selecionada → <span class="tooltip">Potência/Resumo ONU <span class="tooltip-content"><img src="img/Potencia.resumo.png" alt="Orientação sobre Potência/Resumo"><b><br>ONU Offline: </b>
-                    <br><b>LOSi/LOBi</b>: Possível rompimento ou falha na transmissão do sinal de fibra.
-                    <br><b>LOFi</b>: Possível queda por atenuação.
-                    <br><b>Dying-Gasp</b>: Possível queda de energia.
-                    <br><b>Avalie o motivo da ONU estar offline e verifique o Last Down Time</b> (última queda na conexão).
-                    </span></span>→ <span class="tooltip">Histórico de Potenciação <span class="tooltip-content"><img src="img/historico.potencia.png" alt="Orientação sobre Histórico de Potenciação">
-                    <br>Analise a informação do <b>RX - Sinal de Recebimento</b>, observando o último sinal antes da queda e seu histórico</span></span>→ Caixa FTTH → <span class="tooltip">Logins <span class="tooltip-content">
-                        <img src="img/loginonline.png" alt="Logins Online na caixa de atendimento">
-                        <br>Verifique os clientes online e offline. Se todos os clientes estiverem como "Não" na opção On-line, pode indicar uma possível falha massiva.<br>
-                        <img src="img/loginoffline.png" alt="Logins Offline na caixa de atendimento">
-                    </span></span>→ ONUs</li>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question" >Sinal de fibra fora do padrão</button>
-            <div class="faq-answer" id="sinaldefibra">O sinal de fibra fora do padrão pode causar quedas de conexão, lentidão, falta de acesso, entre outros problemas.
-                <br><br><b>Possíveis causas para o sinal de fibra fora do padrão:</b>
-                <br><br><li>Fibra dobrada, amassada, torcida ou mordida, tanto dentro quanto fora do local relatado pelo cliente.</li>
-                <li>Conector danificado ou sujo.</li>
-                <li>Cabo mal encaixado.</li>
-                <br><br>O sinal de fibra deve sempre estar acima de <b>-25 dBm</b>. Caso o cliente tenha sinal de <b>-26 dBm ou inferior</b>, é necessário revisar as possíveis causas mencionadas acima e agendar uma visita técnica para o devido reparo se assim  a falha se manter.
-                <br><b>NECESSÁRIO FRISAR QUE O SINAL É NEGATIVO</b>
-            </div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Ponto adicional</button>
-            <div class="faq-answer">Verifique se o ponto adicional é da Panda, se possível solicite foto. Se for pessoal orientar que não conseguimos auxiliar por não ser equipamento panda. Se for equipamento Panda seguir os procedimentos:
-<li>Em qual porta está conectado o cabo do principal ao ponto adicional? WAN ou LAN? Se estiver na WAN está correto, se estiver na LAN deve ser trocado para WAN, salvo alguns casos de Greatek que podem apresentar funcionamento com o cabo conectado na porta LAN.</li>
-<li>Faça <a href="#aberturadeporta">abertura de porta</a> para o ponto adicional</li>
-<li>Realizar procedimentos padrão de suporte técnico no ponto adicional</li>
-<li>Reiniciar ponto adicional via web</li>
-<li>Reiniciar ponto principal via web</li>
-<li>Reboot ONU</li>
-<li>Desconecte Login</li>
-<li>Limpeza de MAC</li>
-<li>Solicite que o cliente desligue os equipamentos Panda da tomada de 1 a 3 minutos se estiver em atendimento via chat, em atendimentos via telefone desligar de 30 segundos a 1 minuto.</li>
-<br>Se houver normalização oriente ao cliente para avaliar a conexão e se houver falhas novamente deve retornar o contato
-<br>Se a falha ainda persisitir
-<br>
-</div>
-        </div>
-<!--        <div class="faq-item">
-            <button class="faq-question">VPN</button>
-            <div class="faq-answer">Resposta sobre configuração e uso de VPN.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Câmera</button>
-            <div class="faq-answer">Resposta sobre problemas com câmeras conectadas.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Quedas</button>
-            <div class="faq-answer">Resposta sobre quedas frequentes de conexão.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Troca de senha</button>
-            <div class="faq-answer">Resposta sobre troca de senha do Wi-Fi.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Massiva</button>
-            <div class="faq-answer">Resposta sobre falhas massivas na rede.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Atualização</button>
-            <div class="faq-answer">Resposta sobre atualização de equipamentos.</div>
-        </div> 
-    </div> -->
-    <div class="faq-item">
-        <button class="faq-question">Abertura de Porta para Ponto Adicional</button>
-        <div class="faq-answer" id="aberturadeporta">
-            Primeiro é necessário verificar qual equipamento está no local com o cliente. Procure o MAC do equipamento que esteja conectado nas portas LAN
-            <br>No site <a href="https://macvendors.com/" target="_blank">https://macvendors.com/</a> é possível localizar a fabricante do equipamento.
-            <br>Muitos dos nossos equipamentos de ponto adicional são Greatek com MAC início F8: , são esses equipamentos que faremos a abertura de porta.
-            <br> Selecione abaixo o equipamento que o cliente tem como ponto principal.
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MAXPRINT ou VSOL</button>
-                <div class="faq-answer">
-                    <p class="message">Para localizar o IP siga <span class="tooltip">STATUS → USER INFO → LAN INFO <span class="tooltip-content"><img src="img/mxp.status.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde localizar o IP do ponto adicional"></span></span> → Copie o IP do equipamento identificado como o Ponto Adicional →  <span class="tooltip">Application → Advance NAT → Virtual Server → Add<span class="tooltip-content"><img src="img/mxp.server.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde abrir a porta para o ponto adicional"></span></span> → <span class="tooltip">Preencher com os seguintes dados: <span class="tooltip-content"><img src="img/mxp.porta.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta a configuração da porta"></span></span></p>
-                    <li><b>Custom Server:</b> Selecionar o checkbox e mencionar o que é a porta (Ponto Adc 1, Ponto Adc 2)</li>
-                    <li><b>Enable:</b> Habilitado o checkbox</li>
-                    <li><b>External Start Port e End Port:</b> Preencher com a porta que será aberta em ambos os campos. Exemplo de porta: 8081, 8082</li>
-                    <li><b>Protocol:</b> Selecione TCP/UDP</li>
-                    <li><b>Server IP Adress:</b> Preencha com o IP do ponto adicional localizao anteriormente</li>
-                    <li><b>Server Port:</b>Porta 80</li>
+                
+                <div class="faq-item">
+                    <button class="faq-question">Lentidão</button>
+                    <div class="faq-answer" id="lentidão">
+                        Pergunte ao cliente o que ele considera como lentidão e em quais situações ocorre. Verifique quais acessos, aplicativos e equipamentos estão sendo utilizados, além do modo de conexão (cabo ou Wi-Fi).
+                        <br>Verifique no sistema o sinal da fibra do cliente. Se estiver fora do padrão, isso pode causar lentidão na conexão e pode ser necessário visita técnica visite <a href="#sinaldefibra"><b>Sinal de Fibra Fora do Padrão</b></a>.
+                        <br> Verifique o plano contratado e a quantidade de equipamento conectado, acesse <b>Info Planos</b>
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">Aplicativos</button>
+                        <div class="faq-answer">Se o cliente relatar falha em apenas um aplicativo, verifique se outros acessos estão funcionando normalmente. Caso os demais serviços estejam operando corretamente, informe que pode se tratar de uma falha específica do aplicativo.
+                            <br>Se houver falha em outros acessos ou mesmo que o problema pareça isolado, siga o procedimento de <b>configuração de rede</b><br><br>Muitos aplicativos apresentam instabilidades na comunicação com seus servidores, podemos identificar acessando o site <a href="https://downdetector.com.br/">downdetector.com.br</a>
+                            <br>Caso o cliente mencione que na rede de dados móveis funciona e na rede Panda não, oriente que são utilizados rotas de acesso diferentes. Pode ser utilizado o texto a seguir para melhor orientação do cliente
+                            <br><br>As redes de dados móveis e a internet residencial utilizam rotas diferentes para acessar os servidores dos aplicativos. Por isso, um serviço pode funcionar no 4G/5G e não na rede fixa. Isso pode ocorrer devido a diferenças no caminho de conexão, servidores utilizados ou otimizações feitas pelas operadoras. Se o problema persistir, recomendamos aguardar ou entrar em contato com o suporte do aplicativo.
+                        </div>       
+                        <button class="faq-sub-option" onclick="toggleSubAnswer(this)">TVBox / IPTV</button>
+                        <div class="faq-answer">Se o cliente relatar falha no TV Box ou IPTV, questione a marca e o aplicativo utilizado. Informamos que não garantimos o bom funcionamento desses dispositivos, pois não são homologados pela ANATEL. Desde 2023, a ANATEL tem bloqueado o sinal de serviços desse tipo.<br><br>Para melhorar a estabilidade da conexão, oriente o cliente a conectar o equipamento via cabo de rede em vez do Wi-Fi. No entanto, mesmo com essa configuração, não há garantia de funcionamento para dispositivos não homologados.<br><br> Caso o problema persista, orientamos que o cliente entre em contato com o suporte técnico ou o fornecedor do equipamento. No entanto, há alguns aplicativos e dispositivos homologados, como o <b>WATCHTV</b> e o <b>Claro Box TV</b>.</div>  
+                       <!--<button class="faq-sub-option" onclick="toggleSubAnswer(this)">BASE</button>
+                        <div class="faq-answer"><b>BASE</b></div>    --> 
+                    </div>
                 </div>
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MITRA</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
+                <div class="faq-item">
+                    <button class="faq-question">Sem conexão</button>
+                    <div class="faq-answer" id="semconexao">
+                        <b>Coleta de informações com o cliente</b>
+                        <br><li>Deixe o cliente relatar o que ocorreu no local</li>
+                        <li>Pergunte quais luzes/LEDs estão acesas no roteador, solicitando um panorama geral e não apenas sobre a luz vermelha.</li>
+                        <li>Se nenhuma luz/LED estiver acesa questione se houve queda de energia no local.</li>
+                        <li>Verifique se todos os cabos estão bem encaixados no roteador.</li>
+                        <li>estão bem encaixados no roteador.</li>
+                        <li>Solicite que o cliente desligue e ligue novamente o roteador, verificando se houve mudança nas luzes/LEDs.</li>
+                        <br><b>Verificação no sistema:</b>
+                        <br>Acesse:
+                        <li>Cadastro do cliente → Login → Fibra → Fibra Selecionada → <span class="tooltip">Potência/Resumo ONU <span class="tooltip-content"><img src="img/Potencia.resumo.png" alt="Orientação sobre Potência/Resumo"><b><br>ONU Offline: </b>
+                            <br><b>LOSi/LOBi</b>: Possível rompimento ou falha na transmissão do sinal de fibra.
+                            <br><b>LOFi</b>: Possível queda por atenuação.
+                            <br><b>Dying-Gasp</b>: Possível queda de energia.
+                            <br><b>Avalie o motivo da ONU estar offline e verifique o Last Down Time</b> (última queda na conexão).
+                            </span></span>→ <span class="tooltip">Histórico de Potenciação <span class="tooltip-content"><img src="img/historico.potencia.png" alt="Orientação sobre Histórico de Potenciação">
+                            <br>Analise a informação do <b>RX - Sinal de Recebimento</b>, observando o último sinal antes da queda e seu histórico</span></span>→ Caixa FTTH → <span class="tooltip">Logins <span class="tooltip-content">
+                                <img src="img/loginonline.png" alt="Logins Online na caixa de atendimento">
+                                <br>Verifique os clientes online e offline. Se todos os clientes estiverem como "Não" na opção On-line, pode indicar uma possível falha massiva.<br>
+                                <img src="img/loginoffline.png" alt="Logins Offline na caixa de atendimento">
+                            </span></span>→ ONUs</li>
+                    </div>
                 </div>
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">TENDA HG-9</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
+                <div class="faq-item">
+                    <button class="faq-question" >Sinal de fibra fora do padrão</button>
+                    <div class="faq-answer" id="sinaldefibra">O sinal de fibra fora do padrão pode causar quedas de conexão, lentidão, falta de acesso, entre outros problemas.
+                        <br><br><b>Possíveis causas para o sinal de fibra fora do padrão:</b>
+                        <br><br><li>Fibra dobrada, amassada, torcida ou mordida, tanto dentro quanto fora do local relatado pelo cliente.</li>
+                        <li>Conector danificado ou sujo.</li>
+                        <li>Cabo mal encaixado.</li>
+                        <br><br>O sinal de fibra deve sempre estar acima de <b>-25 dBm</b>. Caso o cliente tenha sinal de <b>-26 dBm ou inferior</b>, é necessário revisar as possíveis causas mencionadas acima e agendar uma visita técnica para o devido reparo se assim  a falha se manter.
+                        <br><b>NECESSÁRIO FRISAR QUE O SINAL É NEGATIVO</b>
+                    </div>
                 </div>
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">STAVIX</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
-                </div>
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">THINK DP/DPX</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
-                </div>    
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI AZUL</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
-                </div>    
-            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI VERMELHO</button>
-                <div class="faq-answer">
-                    <p class="message">Em desevolvimento</p>
-                </div>    
+                <div class="faq-item">
+                    <button class="faq-question">Ponto adicional</button>
+                    <div class="faq-answer">Verifique se o ponto adicional é da Panda, se possível solicite foto. Se for pessoal orientar que não conseguimos auxiliar por não ser equipamento panda. Se for equipamento Panda seguir os procedimentos:
+        <li>Em qual porta está conectado o cabo do principal ao ponto adicional? WAN ou LAN? Se estiver na WAN está correto, se estiver na LAN deve ser trocado para WAN, salvo alguns casos de Greatek que podem apresentar funcionamento com o cabo conectado na porta LAN.</li>
+        <li>Faça <a href="#aberturadeporta">abertura de porta</a> para o ponto adicional</li>
+        <li>Realizar procedimentos padrão de suporte técnico no ponto adicional</li>
+        <li>Reiniciar ponto adicional via web</li>
+        <li>Reiniciar ponto principal via web</li>
+        <li>Reboot ONU</li>
+        <li>Desconecte Login</li>
+        <li>Limpeza de MAC</li>
+        <li>Solicite que o cliente desligue os equipamentos Panda da tomada de 1 a 3 minutos se estiver em atendimento via chat, em atendimentos via telefone desligar de 30 segundos a 1 minuto.</li>
+        <br>Se houver normalização oriente ao cliente para avaliar a conexão e se houver falhas novamente deve retornar o contato
+        <br>Se a falha ainda persisitir
+        <br>
         </div>
-    </div> 
+                </div>
+        <!--        <div class="faq-item">
+                    <button class="faq-question">VPN</button>
+                    <div class="faq-answer">Resposta sobre configuração e uso de VPN.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Câmera</button>
+                    <div class="faq-answer">Resposta sobre problemas com câmeras conectadas.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Quedas</button>
+                    <div class="faq-answer">Resposta sobre quedas frequentes de conexão.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Troca de senha</button>
+                    <div class="faq-answer">Resposta sobre troca de senha do Wi-Fi.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Massiva</button>
+                    <div class="faq-answer">Resposta sobre falhas massivas na rede.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Atualização</button>
+                    <div class="faq-answer">Resposta sobre atualização de equipamentos.</div>
+                </div> 
+            </div> -->
+            <div class="faq-item">
+                <button class="faq-question">Abertura de Porta para Ponto Adicional</button>
+                <div class="faq-answer" id="aberturadeporta">
+                    Primeiro é necessário verificar qual equipamento está no local com o cliente. Procure o MAC do equipamento que esteja conectado nas portas LAN
+                    <br>No site <a href="https://macvendors.com/" target="_blank">https://macvendors.com/</a> é possível localizar a fabricante do equipamento.
+                    <br>Muitos dos nossos equipamentos de ponto adicional são Greatek com MAC início F8: , são esses equipamentos que faremos a abertura de porta.
+                    <br> Selecione abaixo o equipamento que o cliente tem como ponto principal.
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MAXPRINT ou VSOL</button>
+                        <div class="faq-answer">
+                            <p class="message">Para localizar o IP siga <span class="tooltip">STATUS → USER INFO → LAN INFO <span class="tooltip-content"><img src="img/mxp.status.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde localizar o IP do ponto adicional"></span></span> → Copie o IP do equipamento identificado como o Ponto Adicional →  <span class="tooltip">Application → Advance NAT → Virtual Server → Add<span class="tooltip-content"><img src="img/mxp.server.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde abrir a porta para o ponto adicional"></span></span> → <span class="tooltip">Preencher com os seguintes dados: <span class="tooltip-content"><img src="img/mxp.porta.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta a configuração da porta"></span></span></p>
+                            <li><b>Custom Server:</b> Selecionar o checkbox e mencionar o que é a porta (Ponto Adc 1, Ponto Adc 2)</li>
+                            <li><b>Enable:</b> Habilitado o checkbox</li>
+                            <li><b>External Start Port e End Port:</b> Preencher com a porta que será aberta em ambos os campos. Exemplo de porta: 8081, 8082</li>
+                            <li><b>Protocol:</b> Selecione TCP/UDP</li>
+                            <li><b>Server IP Adress:</b> Preencha com o IP do ponto adicional localizao anteriormente</li>
+                            <li><b>Server Port:</b>Porta 80</li>
+                        </div>
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MITRA</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">TENDA HG-9</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">STAVIX</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">THINK DP/DPX</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>    
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI AZUL</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>    
+                    <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI VERMELHO</button>
+                        <div class="faq-answer">
+                            <p class="message">Em desevolvimento</p>
+                        </div>    
+                </div>
+            </div> 
     <script>
-// Impede acesso ao index se não estiver logado
-if (localStorage.getItem("loggedIn") !== "true") {
-    console.log("Usuário não logado, redirecionando para login...");
-    window.location.href = "login.html"; // Redireciona para login se não estiver logado
-} else {
-    console.log("Usuário autenticado, carregando página...");
-}
-
         // Abre e fecha as respostas da FAQ quando clicado no botão
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
@@ -490,26 +482,22 @@ if (localStorage.getItem("loggedIn") !== "true") {
                 });
             });
         });
-        document.getElementById("logout-btn").addEventListener("click", function(event) {
-    event.preventDefault(); // Impede o link de recarregar a página
+        document.addEventListener("DOMContentLoaded", function () {
+            // Verifica se o usuário está logado
+            if (localStorage.getItem("loggedIn") !== "true") {
+                console.log("Usuário não logado. Redirecionando para login...");
+                window.location.href = "login.html";
+            } else {
+                console.log("Usuário autenticado!");
+            }
 
-    // Remove qualquer dado de login salvo
-    localStorage.removeItem("loggedIn");
-
-    // Redireciona para a página de login
-    window.location.href = "login.html";
-});
-
+            // Botão de logout
+            document.getElementById("logout-btn").addEventListener("click", function() {
+                console.log("Usuário deslogado.");
+                localStorage.removeItem("loggedIn"); // Remove o login
+                window.location.href = "login.html"; // Redireciona para login
+            });
+        });
     </script>
-        <footer>
-            <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
-            <p>Desenvolvido por Luiza Oriani</p>
-        </footer>
-    </body>
+</body>
 </html>
- 
-
- 
-
-
- 

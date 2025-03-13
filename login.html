@@ -73,7 +73,6 @@
             }
         }
     </style>
-</head>
 <body>
     <div class="login-container">
         <h2>Login FAQ Suporte</h2>
@@ -85,41 +84,34 @@
         <p id="error-message" class="error-message"></p>
     </div>
 
+    </form>
+    <p id="error-message" style="color: red; display: none;">Usuário ou senha incorretos!</p>
+
     <script>
-     // Proteção para não deixar acessar login novamente se já estiver logado
-     if (localStorage.getItem("loggedIn") === "true") {
-            window.location.replace = "index.html"; // Redireciona para a página de FAQ se já estiver logado
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("login-form").addEventListener("submit", function(event) {
+                event.preventDefault(); // Impede o envio do formulário
 
-        // Lógica de login
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const errorMessage = document.getElementById("error-message");
 
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita o recarregamento da página ao enviar o formulário
+                console.log("Tentativa de login:", username, password); // Depuração
 
-    // Definição do usuário e senha
-    const validUser = "suporte";
-    const validPassword = "testesuporte";
+                // Simulação de credenciais (substitua isso pelo backend real)
+                const validUser = "admin";
+                const validPass = "1234";
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const errorMessage = document.getElementById("error-message");
-
-    if (username === validUser && password === validPassword) {
-        localStorage.setItem("loggedIn", "true"); // Armazena a sessão
-
-        console.log("Login realizado, redirecionando..."); // Depuração
-
-        window.location.href = "index.html"; // Redireciona para a FAQ
-    } else {
-        errorMessage.textContent = "Usuário ou senha inválidos!";
-    }
-});
+                if (username === validUser && password === validPass) {
+                    console.log("Login bem-sucedido!");
+                    localStorage.setItem("loggedIn", "true");
+                    window.location.href = "index.html"; // Redireciona para a página protegida
+                } else {
+                    console.log("Usuário ou senha incorretos!");
+                    errorMessage.style.display = "block";
+                }
+            });
+        });
     </script>
-            <footer>
-                <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
-                <p>Desenvolvido por Luiza Oriani</p>
-            </footer>
 </body>
 </html>
