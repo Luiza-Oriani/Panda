@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - FAQ</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,24 +14,26 @@
             background-color: #141C4B;
             flex-direction: column  ;
         }
-
         .login-container {
-            background: white;
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
-        input {
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-field {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
         }
-
-        button {
+        .login-button {
             width: 100%;
             padding: 10px;
             background-color: #1D70B7;
@@ -40,24 +42,22 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #141C4B;
+        .login-button:hover {
+            background-color: #155a8a;
         }
-
         .error-message {
             color: red;
             font-size: 14px;
         }
         footer {
-        color: white;
-        text-align: center;
-        padding: 20px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-    @media (max-width: 600px) {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
             .login-container {
                 padding: 15px;
             }
@@ -73,49 +73,51 @@
             }
         }
     </style>
+</head>
 <body>
+
     <div class="login-container">
         <h2>Login FAQ Suporte</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuário" required>
-            <input type="password" id="password" placeholder="Senha" required>
-            <button type="submit">Entrar</button>
+        <form action="index.html" method="get" id="loginform">
+            <input type="text" class="input-field" id="username" placeholder="Usuário" name="username" required>
+            <input type="password" class="input-field" id="password" placeholder="Senha" name="password" required>
+            <button type="submit" class="login-button">Entrar</button>
         </form>
         <p id="error-message" class="error-message"></p>
     </div>
-
-    </form>
     <p id="error-message" style="color: red; display: none;">Usuário ou senha incorretos!</p>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("login-form").addEventListener("submit", function(event) {
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementById("loginform").addEventListener("submit", function(event){
                 event.preventDefault(); // Impede o envio do formulário
 
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
+                const username = document.getElementById("username").value.trim();
+                const password = document.getElementById("password").value.trim(); // Corrigido para "trim()"
                 const errorMessage = document.getElementById("error-message");
-
                 console.log("Tentativa de login:", username, password); // Depuração
-
-                // Simulação de credenciais (substitua isso pelo backend real)
+            
+                // Simulação de credenciais (substitua pelo backend real)
                 const validUser = "admin";
                 const validPass = "1234";
-
                 if (username === validUser && password === validPass) {
                     console.log("Login bem-sucedido!");
                     localStorage.setItem("loggedIn", "true");
-                    window.location.href = "index.html"; // Redireciona para a página protegida
+
+                    // Pequeno atraso para garantir que o navegador processa o armazenamento
+                    setTimeout(() => {
+                        window.location.href = "index.html"; // Redireciona para a página protegida
+                        console.log("Redirecionando para index.html...");
+                    }, 500);
                 } else {
                     console.log("Usuário ou senha incorretos!");
                     errorMessage.style.display = "block";
+                    errorMessage.textContent = "Usuário ou senha incorretos!"; // Garante que há uma mensagem de erro visível
                 }
             });
         });
     </script>
-            <footer>
-                <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
-                <p>Desenvolvido por Luiza Oriani</p>
-            </footer>    
+
 </body>
+
 </html>
