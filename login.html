@@ -95,21 +95,27 @@
         document.getElementById("loginForm").addEventListener("submit", function(event) {
             event.preventDefault();
 
-            // Definição do usuário e senha
-            const validUser = "suporte";
-            const validPassword = "testesuporte";
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita o recarregamento da página ao enviar o formulário
 
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
+    // Definição do usuário e senha
+    const validUser = "suporte";
+    const validPassword = "testesuporte";
 
-            if (username === validUser && password === validPassword) {
-                localStorage.setItem("loggedIn", "true"); // Armazena a sessão
-                window.location.replace = "index.html"; // Redireciona para a FAQ
-            } else {
-                errorMessage.textContent = "Usuário ou senha inválidos!";
-            }
-        }); 
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("error-message");
+
+    if (username === validUser && password === validPassword) {
+        localStorage.setItem("loggedIn", "true"); // Armazena a sessão
+
+        console.log("Login realizado, redirecionando..."); // Depuração
+
+        window.location.href = "index.html"; // Redireciona para a FAQ
+    } else {
+        errorMessage.textContent = "Usuário ou senha inválidos!";
+    }
+});
     </script>
             <footer>
                 <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
