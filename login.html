@@ -10,8 +10,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            min-height: 100vh;
+            background-color: #141C4B;
+            flex-direction: column  ;
         }
 
         .login-container {
@@ -48,11 +49,34 @@
             color: red;
             font-size: 14px;
         }
+        footer {
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    @media (max-width: 600px) {
+            .login-container {
+                padding: 15px;
+            }
+
+            input, button {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>Login 1</h2>
+        <h2>Login FAQ Suporte</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder="Usuário" required>
             <input type="password" id="password" placeholder="Senha" required>
@@ -73,7 +97,7 @@
 
             // Definição do usuário e senha
             const validUser = "suporte";
-            const validPassword = "123456";
+            const validPassword = "P@nda12345";
 
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
@@ -87,5 +111,9 @@
             }
         }); 
     </script>
+            <footer>
+                <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
+                <p>Desenvolvido por Luiza Oriani</p>
+            </footer>
 </body>
 </html>
