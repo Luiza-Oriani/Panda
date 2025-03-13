@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - Suporte Técnico</title>
     <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
-    .faq-container { width: 100%; }
-    .faq-item { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
+    body { 
+        font-family: Arial, sans-serif; 
+        max-width: 600px; 
+        margin: 20px auto; 
+        background-color: #141C4B;
+    }
+    h2{
+        color: #ccc;
+    }
+    .faq-container { 
+        width: 100%; 
+    }
+    .faq-item { 
+        border-bottom: 1px solid #ccc; 
+        margin-bottom: 10px; 
+    }
     .faq-question {
         background-color: #1D70B7; 
         color: white; 
@@ -21,7 +34,9 @@
     .faq-answer { 
         display: none; 
         padding: 10px; 
-        background-color: #f9f9f9; 
+        background-color: #141C4B; 
+        border-color: #e0e0e0;
+        color: #ccc;
     }
     .faq-sub-option {
         display: block;
@@ -33,8 +48,17 @@
         text-align: left;
         font-size: 14px;
     }
+    a{
+        color: lightblue;
+    }
+    a:visited{
+        color: lightblue;
+    }
+    a:hover{
+        color: rgb(73, 182, 219);
+    }
     #searchInput {
-        width: calc(100% - 120px); /* Ajusta o tamanho para deixar espaço para o botão */
+        width: 96.5%; 
         padding: 10px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
@@ -48,7 +72,8 @@
         margin-bottom: 20px;
     }
     .sair-button {
-        padding: 10px 20px;
+        padding: 10px;
+        margin-bottom: 10px;
         font-size: 16px;
         font-weight: bold;
         color: white;
@@ -63,7 +88,49 @@
         background-color: black;
         color: white;
     }
+    .tooltip {
+        position: relative;
+        color: lightblue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 
+    .tooltip .tooltip-content {
+        visibility: hidden;
+        width: 220px;
+        background-color: #141c4b;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 10;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tooltip:hover .tooltip-content {
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip img{
+        width: 200px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+    footer {
+        background-color: #141C4B;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
     /* Responsividade */
     @media (max-width: 768px) {
         body {
@@ -101,9 +168,16 @@
             margin-top: 10px;
         }
         .tooltip .tooltip-content {
-        width: 180px; /* Diminui a largura do tooltip em telas menores */
-        font-size: 14px; /* Reduz o tamanho da fonte */
-    }
+            width: 180px; /* Diminui a largura do tooltip em telas menores */
+            font-size: 14px; /* Reduz o tamanho da fonte */
+        }
+        footer {
+            padding: 15px; /* Menos espaçamento em telas menores */
+        }
+
+        footer p {
+            font-size: 14px; /* Texto menor em telas pequenas */
+        }
 
     }
 
@@ -134,47 +208,17 @@
             align-items: stretch;
         }
         .tooltip .tooltip-content {
-        width: 150px; /* Torna o tooltip mais estreito em telas muito pequenas */
-        font-size: 12px; /* Menor tamanho de fonte em telas pequenas */
-        top: 100%; /* Ajusta o posicionamento para não ficar fora da tela */
- 
-    }
-    }
-        
+            width: 150px; /* Torna o tooltip mais estreito em telas muito pequenas */
+            font-size: 12px; /* Menor tamanho de fonte em telas pequenas */
+            top: 100%; /* Ajusta o posicionamento para não ficar fora da tela */
+        }
+        footer {
+            padding: 10px; /* Menos espaçamento em telas muito pequenas */
+        }
 
-    .tooltip {
-        position: relative;
-        color: blue;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
-    .tooltip .tooltip-content {
-        visibility: hidden;
-        width: 220px;
-        background-color: #141c4b;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 10px;
-        position: absolute;
-        z-index: 10;
-        top: 120%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .tooltip:hover .tooltip-content {
-        visibility: visible;
-        opacity: 1;
-    }
-    .tooltip img{
-        width: 200px;
-        border-radius: 4px;
-        margin-bottom: 5px;
+        footer p {
+            font-size: 12px; /* Texto ainda menor */
+        }
     }
 </style>
 <script>
@@ -185,12 +229,11 @@
 </script>
 </head>
 <body>
-<h2>FAQ - Suporte Técnico</h2>
-
 <div id="header-container">
-    <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
+    <h2>FAQ - Suporte Técnico</h2>
     <a href="login.html" class="sair-button">SAIR</a>
 </div>
+    <input type="text" id="searchInput" placeholder="Buscar..." onkeyup="searchFAQ()">
     <div class="faq-container" id="faqList">
         <div class="faq-item">
             <button class="faq-question">Mensagens para Interação com o Cliente</button>
@@ -233,9 +276,9 @@
                 Se o videogame apresentar falha na conexão e exibir um erro relacionado a DNS ou DHCP, verifique se a configuração do DNS está correta. <br> Oriente o cliente a acessar as configurações de rede do videogame para realizar essa verificação.
                 Caso o erro persista após a configuração do IPv4, pode ser que o endereço IP tenha sido previamente definido com final 150 no videogame ou em outro equipamento. Nesse caso, oriente o cliente a escolher um endereço entre 150 e 200. <br>Cada videogame possui uma interface diferente. Abaixo, segue um passo a passo específico para cada uma delas.
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">XBOX</button>
-                <div class="faq-answer"><b>XBOX</b>: Configurações de Rede -> Configurações avançadas -> Configurações de IP -> Selecionar MANUAL nas configurações de IPV4-> IP: 192.168.100.150 -> Máscara de SubRede: 255.255.255.0 -> Gateway: 192.168.100.1 -> IPV4 Primário: 191.7.184.2 -> IPV4 Secundário: 191.7.184.3 <br><img src="img/Xbox1.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/Xbox2.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/Xbox3.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações Avançadas"width="550px" height="300px"> <br><img src="img/Xbox4.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/Xbox5.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Sub-Rede"width="550px" height="300px"><br><img src="img/Xbox6.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Gateway"width="550px" height="300px"><br><img src="img/Xbox7.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações IPV4 Primário"width="550px" height="300px"></div>
+                <div class="faq-answer"><b>XBOX</b>: Configurações de Rede → Configurações avançadas → Configurações de IP → Selecionar MANUAL nas configurações de IPV4 → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 <br><img src="img/Xbox1.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/Xbox2.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/Xbox3.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações Avançadas"width="550px" height="300px"> <br><img src="img/Xbox4.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/Xbox5.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Sub-Rede"width="550px" height="300px"><br><img src="img/Xbox6.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações de Gateway"width="550px" height="300px"><br><img src="img/Xbox7.jpg" alt="Imagem representando a interface do xbox onde apresenta Configurações IPV4 Primário"width="550px" height="300px"></div>
                 <button class="faq-sub-option" onclick="toggleSubAnswer(this)">PLAYSTATION</button>
-                <div class="faq-answer"><b>PLAYSTATION</b>: Configurações de Rede -> Como deseja configurar a conexão à internet? Selecionar a Opção PERSONALIZAR -> Configurações de endereço IP. Selecionar AUTOMÁTICO -> IP: 192.168.100.150 -> Máscara de SubRede: 255.255.255.0 -> Gateway: 192.168.100.1 -> IPV4 Primário: 191.7.184.2 -> IPV4 Secundário: 191.7.184.3 -> Configurações MTU: AUTOMÁTICO -> Servidor Proxy: NÃO USAR<br><img src="img/PS1.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/PS2.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/PS3.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Endereço IP onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/PS4.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurar conexão à Internet"width="550px" height="300px"> <br><img src="img/PS5.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de MTU"width="550px" height="300px"><br><img src="img/PS6.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações do Servidor Proxy"width="550px" height="300px"></div>
+                <div class="faq-answer"><b>PLAYSTATION</b>: Configurações de Rede → Como deseja configurar a conexão à internet? Selecionar a Opção PERSONALIZAR → Configurações de endereço IP. Selecionar AUTOMÁTICO → IP: 192.168.100.150 → Máscara de SubRede: 255.255.255.0 → Gateway: 192.168.100.1 → IPV4 Primário: 191.7.184.2 → IPV4 Secundário: 191.7.184.3 → Configurações MTU: AUTOMÁTICO → Servidor Proxy: NÃO USAR<br><img src="img/PS1.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações" width="550px" height="300px"> <br><img src="img/PS2.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Rede"width="550px" height="300px"> <br><img src="img/PS3.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de Endereço IP onde deve ser selecionado MANUAL"width="550px" height="300px"> <br><img src="img/PS4.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurar conexão à Internet"width="550px" height="300px"> <br><img src="img/PS5.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações de MTU"width="550px" height="300px"><br><img src="img/PS6.jpg" alt="Imagem representando a interface do Playstation onde apresenta Configurações do Servidor Proxy"width="550px" height="300px"></div>
             </div>
         </div>        
 
@@ -261,7 +304,7 @@
         <div class="faq-item">
             <button class="faq-question">Sem conexão</button>
             <div class="faq-answer" id="semconexao">
-                <b>1º Coleta de informações com o cliente</b>
+                <b>Coleta de informações com o cliente</b>
                 <br><li>Deixe o cliente relatar o que ocorreu no local</li>
                 <li>Pergunte quais luzes/LEDs estão acesas no roteador, solicitando um panorama geral e não apenas sobre a luz vermelha.</li>
                 <li>Se nenhuma luz/LED estiver acesa questione se houve queda de energia no local.</li>
@@ -294,11 +337,24 @@
                 <br><b>NECESSÁRIO FRISAR QUE O SINAL É NEGATIVO</b>
             </div>
         </div>
-<!--        <div class="faq-item">
-            <button class="faq-question">Ponto adicional</button>
-            <div class="faq-answer">Resposta sobre instalação de ponto adicional.</div>
-        </div>
         <div class="faq-item">
+            <button class="faq-question">Ponto adicional</button>
+            <div class="faq-answer">Verifique se o ponto adicional é da Panda, se possível solicite foto. Se for pessoal orientar que não conseguimos auxiliar por não ser equipamento panda. Se for equipamento Panda seguir os procedimentos:
+<li>Em qual porta está conectado o cabo do principal ao ponto adicional? WAN ou LAN? Se estiver na WAN está correto, se estiver na LAN deve ser trocado para WAN, salvo alguns casos de Greatek que podem apresentar funcionamento com o cabo conectado na porta LAN.</li>
+<li>Faça <a href="#aberturadeporta">abertura de porta</a> para o ponto adicional</li>
+<li>Realizar procedimentos padrão de suporte técnico no ponto adicional</li>
+<li>Reiniciar ponto adicional via web</li>
+<li>Reiniciar ponto principal via web</li>
+<li>Reboot ONU</li>
+<li>Desconecte Login</li>
+<li>Limpeza de MAC</li>
+<li>Solicite que o cliente desligue os equipamentos Panda da tomada de 1 a 3 minutos se estiver em atendimento via chat, em atendimentos via telefone desligar de 30 segundos a 1 minuto.</li>
+<br>Se houver normalização oriente ao cliente para avaliar a conexão e se houver falhas novamente deve retornar o contato
+<br>Se a falha ainda persisitir
+<br>
+</div>
+        </div>
+<!--        <div class="faq-item">
             <button class="faq-question">VPN</button>
             <div class="faq-answer">Resposta sobre configuração e uso de VPN.</div>
         </div>
@@ -323,7 +379,49 @@
             <div class="faq-answer">Resposta sobre atualização de equipamentos.</div>
         </div> 
     </div> -->
-    
+    <div class="faq-item">
+        <button class="faq-question">Abertura de Porta para Ponto Adicional</button>
+        <div class="faq-answer" id="aberturadeporta">
+            Primeiro é necessário verificar qual equipamento está no local com o cliente. Procure o MAC do equipamento que esteja conectado nas portas LAN
+            <br>No site <a href="https://macvendors.com/" target="_blank">https://macvendors.com/</a> é possível localizar a fabricante do equipamento.
+            <br>Muitos dos nossos equipamentos de ponto adicional são Greatek com MAC início F8: , são esses equipamentos que faremos a abertura de porta.
+            <br> Selecione abaixo o equipamento que o cliente tem como ponto principal.
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MAXPRINT ou VSOL</button>
+                <div class="faq-answer">
+                    <p class="message">Para localizar o IP siga <span class="tooltip">STATUS → USER INFO → LAN INFO <span class="tooltip-content"><img src="img/mxp.status.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde localizar o IP do ponto adicional"></span></span> → Copie o IP do equipamento identificado como o Ponto Adicional →  <span class="tooltip">Application → Advance NAT → Virtual Server → Add<span class="tooltip-content"><img src="img/mxp.server.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta onde abrir a porta para o ponto adicional"></span></span> → <span class="tooltip">Preencher com os seguintes dados: <span class="tooltip-content"><img src="img/mxp.porta.png" alt="Imagem da interface do equipamento MaxPrint onde apresenta a configuração da porta"></span></span></p>
+                    <li><b>Custom Server:</b> Selecionar o checkbox e mencionar o que é a porta (Ponto Adc 1, Ponto Adc 2)</li>
+                    <li><b>Enable:</b> Habilitado o checkbox</li>
+                    <li><b>External Start Port e End Port:</b> Preencher com a porta que será aberta em ambos os campos. Exemplo de porta: 8081, 8082</li>
+                    <li><b>Protocol:</b> Selecione TCP/UDP</li>
+                    <li><b>Server IP Adress:</b> Preencha com o IP do ponto adicional localizao anteriormente</li>
+                    <li><b>Server Port:</b>Porta 80</li>
+                </div>
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">MITRA</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">TENDA HG-9</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">STAVIX</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">THINK DP/DPX</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>    
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI AZUL</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>    
+            <button class="faq-sub-option" onclick="toggleSubAnswer(this)">HUAWEI VERMELHO</button>
+                <div class="faq-answer">
+                    <p class="message">Em criação</p>
+                </div>    
+        </div>
+    </div> 
     <script>
         // Abre e fecha as respostas da FAQ quando clicado no botão
         document.querySelectorAll('.faq-question').forEach(button => {
@@ -401,6 +499,10 @@
     window.location.href = "login.html"; 
 });
     </script>
+        <footer>
+            <p>&copy; FAQ Suporte Técnico - Panda Internet Fibra</p>
+            <p>Desenvolvido por Luiza Oriani</p>
+        </footer>
     </body>
 </html>
  
