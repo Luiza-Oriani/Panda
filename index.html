@@ -90,6 +90,21 @@
             font-size: 14px;
             padding: 8px;
         }
+
+        #header-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .sair-button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .tooltip .tooltip-content {
+        width: 180px; /* Diminui a largura do tooltip em telas menores */
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
     }
 
     @media (max-width: 480px) {
@@ -113,7 +128,20 @@
             padding: 6px;
             width: 100%; /* Deixa o campo de busca ocupar toda a largura na tela pequena */
         }
+
+        #header-container {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .tooltip .tooltip-content {
+        width: 150px; /* Torna o tooltip mais estreito em telas muito pequenas */
+        font-size: 12px; /* Menor tamanho de fonte em telas pequenas */
+        top: 100%; /* Ajusta o posicionamento para não ficar fora da tela */
+ 
     }
+    }
+        
+
     .tooltip {
         position: relative;
         color: blue;
