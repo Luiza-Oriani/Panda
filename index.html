@@ -114,6 +114,40 @@
             width: 100%; /* Deixa o campo de busca ocupar toda a largura na tela pequena */
         }
     }
+    .tooltip {
+        position: relative;
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .tooltip .tooltip-content {
+        visibility: hidden;
+        width: 220px;
+        background-color: #141c4b;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px;
+        position: absolute;
+        z-index: 10;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tooltip:hover .tooltip-content {
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip img{
+        width: 200px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
 </style>
 <script>
     // Verifica se o usuário está logado
@@ -208,15 +242,15 @@
                 <li>Solicite que o cliente desligue e ligue novamente o roteador, verificando se houve mudança nas luzes/LEDs.</li>
                 <br><b>Verificação no sistema:</b>
                 <br>Acesse:
-                <li>Cadastro do cliente → Login → Fibra → Fibra Selecionada → <span class="tooltip">Potência/Resumo ONU <span class="tooltip-content"><img src="img/Potencia.resumo.png" alt="Orientação sobre Potência/Resumo"><b>ONU Offline: </b>
+                <li>Cadastro do cliente → Login → Fibra → Fibra Selecionada → <span class="tooltip">Potência/Resumo ONU <span class="tooltip-content"><img src="img/Potencia.resumo.png" alt="Orientação sobre Potência/Resumo"><b><br>ONU Offline: </b>
                     <br><b>LOSi/LOBi</b>: Possível rompimento ou falha na transmissão do sinal de fibra.
                     <br><b>LOFi</b>: Possível queda por atenuação.
                     <br><b>Dying-Gasp</b>: Possível queda de energia.
                     <br><b>Avalie o motivo da ONU estar offline e verifique o Last Down Time</b> (última queda na conexão).
                     </span></span>→ <span class="tooltip">Histórico de Potenciação <span class="tooltip-content"><img src="img/historico.potencia.png" alt="Orientação sobre Histórico de Potenciação">
-                    Analise a informação do <b>RX - Sinal de Recebimento</b>, observando o último sinal antes da queda e seu histórico</span></span>→ Caixa FTTH → <span class="tooltip">Logins <span class="tooltip-content">
+                    <br>Analise a informação do <b>RX - Sinal de Recebimento</b>, observando o último sinal antes da queda e seu histórico</span></span>→ Caixa FTTH → <span class="tooltip">Logins <span class="tooltip-content">
                         <img src="img/loginonline.png" alt="Logins Online na caixa de atendimento">
-                        Verifique os clientes online e offline. Se todos os clientes estiverem como "Não" na opção On-line, pode indicar uma possível falha massiva.
+                        <br>Verifique os clientes online e offline. Se todos os clientes estiverem como "Não" na opção On-line, pode indicar uma possível falha massiva.<br>
                         <img src="img/loginoffline.png" alt="Logins Offline na caixa de atendimento">
                     </span></span>→ ONUs</li>
             </div>
@@ -343,10 +377,6 @@
 </html>
  
 
- 
-
-
- 
  
 
 
