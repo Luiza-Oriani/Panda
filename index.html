@@ -417,13 +417,12 @@
         </div>
     </div> 
     <script>
-            // Verifica se o usuário está logado
-    if (sessionStorage.getItem("usuarioLogado") !== "true") {
-        window.location.href = "login.html"; // Redireciona para o login se não estiver logado
-    }
-        // Se o usuário já está logado, impede que ele acesse a tela de login novamente
-if (localStorage.getItem("loggedIn") === "true") {
-    window.location.replace("index.html"); // Redireciona de forma segura para evitar loops
+// Impede acesso ao index se não estiver logado
+if (localStorage.getItem("loggedIn") !== "true") {
+    console.log("Usuário não logado, redirecionando para login...");
+    window.location.href = "login.html"; // Redireciona para login se não estiver logado
+} else {
+    console.log("Usuário autenticado, carregando página...");
 }
 
         // Abre e fecha as respostas da FAQ quando clicado no botão
